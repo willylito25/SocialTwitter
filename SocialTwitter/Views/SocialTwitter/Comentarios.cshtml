@@ -17,30 +17,31 @@
                 @foreach (var item in Model)
                 {
                     <a class="tweetEntry-account-group">
-
-                        <strong class="tweetEntry-fullname">
-                            @Html.DisplayFor(modelItem => item.ApplicationUser.FullName)
-                        </strong>
-
-                        <!--Tiempo-->
+                        <h3>@item.ApplicationUser.FullName</h3>
                         <span class="tweetEntry-timestamp"></span>
-
                     </a>
 
-                    <div class="tweetEntry-text-container">
+                    <div class="container">
                         @Html.DisplayFor(modelItem => item.Comentario)
+                        <hr />
+
+                        @foreach (var subComment in item.SubComentarios)
+                        {
+                        <ul class="list-group">
+                            <li class="list-group-item">@subComment.subcomentario <small>por: <strong>example</strong></small></li>
+                        </ul>
+                        }
                     </div>
-
+                    
                     <br />
-                    { Html.RenderAction("ListaSubComentarios"); }
                     { Html.RenderAction("SubComentarios", new { idComentario = item.ComentarioID }); }
-                    <br /> <br /><br />
-
+                    <br /> 
+                    <br />
+                    <br />
                 }
-                <hr size="2000" class="tweetEntry-tweetHolder" />
-                <br /> <br />
 
-
+                <br /> 
+                <br />
             </div>
         </div>
         <br />
