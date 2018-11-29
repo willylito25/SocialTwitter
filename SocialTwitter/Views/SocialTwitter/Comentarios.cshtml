@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SocialTwitter.Models.Comentarios>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap-comentario.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+    <div class="tweetEntry-tweetHolder">
+        <h1 class="tweetEntry" style="margin-bottom:0px;">Comentarios.</h1>
+        <!---------------------------------------->
+        <!-- Entry with Media turned on. -->
+        <div class="tweetEntry">
+
+
+            <div class="tweetEntry-content">
+                @foreach (var item in Model)
+                {
+                    <a class="tweetEntry-account-group">
+
+                        <strong class="tweetEntry-fullname">
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.FullName)
+                        </strong>
+
+                        <!--Tiempo-->
+                        <span class="tweetEntry-timestamp"></span>
+
+                    </a>
+
+                    <div class="tweetEntry-text-container">
+                        @Html.DisplayFor(modelItem => item.Comentario)
+                    </div>
+
+                    <br />
+                    { Html.RenderAction("ListaSubComentarios"); }
+                    { Html.RenderAction("SubComentarios", new { idComentario = item.ComentarioID }); }
+                    <br /> <br /><br />
+
+                }
+                <hr size="2000" class="tweetEntry-tweetHolder" />
+                <br /> <br />
+
+
+            </div>
+        </div>
+        <br />
+    </div>
+    <br />
+</body>
+</html>

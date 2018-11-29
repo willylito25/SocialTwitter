@@ -1,0 +1,21 @@
+﻿@model SocialTwitter.Models.Comentarios
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Crea un nuevo comentario.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @*@Html.LabelFor(m => m.Comentario, new { @class = "col-md-2 control-label" })*@
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Comentario, new { @class = "form-control" })
+        </div>
+    </div>
+    <br /> <br /> <br /><br /><br />
+    @*@Html.ActionLink("Publicar Comentario", "Index", new { @class="btn btn-default"})*@
+    <input type="submit" value="Publicar Comentario" class="btn btn-default" />
+}
+<br /> <br />
+
+

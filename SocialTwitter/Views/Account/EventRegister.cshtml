@@ -1,0 +1,72 @@
+﻿@model SocialTwitter.Models.RegisterViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <!-- metatags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Transitive register form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <link href="~/Templates/Register/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Templates/Register/css/font-awesome.css"><!--font_wesome_icons-->
+    <link href="//fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"><!--online fonts-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"><!--online fonts-->
+</head>
+<body>
+    <div class="w3ls-headding">
+        <h1><span>S</span>ocial <span>T</span>witter @*<span>f</span>orm*@</h1>
+    </div>
+    <div class="agile-main">
+        <div class="agile-left">
+
+        </div>
+        <div class="agile-right">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div class="agile-right-h2">
+                    <h2> register here</h2>
+                </div>
+                <div class="w3l-name">
+                    <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.Name, new { @class = "fa fa-user", @placeholder = "Enter your name", @type = "text" })
+                </div>
+                <div class="w3l-name">
+                    <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "fa fa-user", @placeholder = "Enter your last name", @type = "text" })
+                </div>
+                <div class="w3l-email">
+                    <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "fa fa-user", @placeholder = "Enter your last name", @type = "email" })
+                </div>
+                <div class="w3l-psw">
+                    <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.Password, new { @class = "fa fa-user", @placeholder = "Create password", @type = "password" })
+                </div>
+                <div class="w3l-psw">
+                    <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "fa fa-user", @placeholder = "Confirm password", @type = "password" })
+                </div>
+                <div class="clear"></div>
+                <br />
+                <div class="w3l-submit">
+                    <input type="submit" value="Register">
+                </div>
+
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

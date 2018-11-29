@@ -1,0 +1,21 @@
+﻿@model SocialTwitter.Models.SubComentario
+
+@using (Html.BeginForm("SubComentarios", "SocialTwitter"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @*@Html.LabelFor(m => m.Comentario, new { @class = "col-md-2 control-label" })*@
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.subcomentario, new { @class = "form-control" }) <input type="submit" value="Publicar Comentario" class="btn btn-default" />
+            
+        </div>
+        <div>
+            <input type="hidden" name="ComentarioID" value="@Model.ComentarioID" />
+        </div>
+    </div>
+    
+    @*@Html.ActionLink("Publicar Comentario", "Index", new { @class="btn btn-default"})*@
+    
+}
+    <br /> <br />

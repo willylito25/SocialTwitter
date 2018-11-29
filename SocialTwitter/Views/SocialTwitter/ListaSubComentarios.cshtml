@@ -1,0 +1,27 @@
+﻿@model List<SocialTwitter.Models.SubComentario>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/bootstrap-comentario.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+    <h4>Sub Comentarios</h4>
+    <div class="caja">
+            
+        <div @*class="tweetEntry-content"*@>
+            @foreach (var item in Model)
+            {
+                <strong @*class="tweetEntry-fullname"*@>
+                    @Html.DisplayFor(modelItem => item.Comentarios.ApplicationUser.FullName)
+                </strong>
+
+                <div @*class="tweetEntry-text-container"*@>
+                    @Html.DisplayFor(modelItem => item.subcomentario)
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+    
+</body>
+</html>
